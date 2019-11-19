@@ -13,10 +13,12 @@
 
 Route::get('/', 'HomeController@index');
 
+Auth::routes(['verify' => true]);
+
 Route::get('/about', 'AboutController@index');
 
 Route::prefix('/profile')->group(function() {
-    Route::get('/', 'ProfileController@index')->name('profile.show');
+    Route::get('/', 'ProfileController@index');
     Route::get('/edit', 'ProfileController@edit');
     Route::patch('/', 'ProfileController@update');
 });
@@ -45,6 +47,3 @@ Route::prefix('/ideas')->group(function() {
     Route::delete('/{idea}', 'IdeasController@destroy');
 });
 
-Auth::routes(['verify' => true]);
-
-Route::get('/home', 'HomeController@index')->name('home');
