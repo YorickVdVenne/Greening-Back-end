@@ -44,3 +44,7 @@ Route::prefix('/ideas')->group(function() {
     Route::patch('/{idea}',  'IdeasController@update');
     Route::delete('/{idea}', 'IdeasController@destroy');
 });
+
+Auth::routes(['verify' => true]);
+
+Route::get('/home', 'HomeController@index')->name('home');
