@@ -8,10 +8,6 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     public function index()
     {
@@ -26,6 +22,10 @@ class ProfileController extends Controller
 
     public function edit()
     {
+        if(Auth::guest()) {
+            return redirect('/login');
+        }
+
         $user = User::findOrFail(Auth::user()->id);
 
         return view('profile.edit', compact('user'));
