@@ -86,4 +86,9 @@
             </div>
         </div>
     </body>
+    
+   {{print($users)}}
+  
 </html>
+
+
