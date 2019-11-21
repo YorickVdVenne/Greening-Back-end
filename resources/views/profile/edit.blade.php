@@ -9,8 +9,8 @@
             @method('PATCH')
 
             <div>
-                <label for="name">Name</label>
-                <input type="text" name="name" autocomplete="off" value="{{ old('name') ?? $user->name }}">
+                <label for="username">Username</label>
+                <input type="text" name="username" autocomplete="off" value="{{ old('username') ?? $user->username }}">
                 @error('name') <p style="color: red">{{ $message }}</p> @enderror 
             </div>
 

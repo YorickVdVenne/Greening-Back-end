@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use App\User;
-use Request;
+use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
@@ -15,7 +15,11 @@ class ProfileController extends Controller
 
     public function index()
     {
-        $user = User::findOrFail(Auth::user()->id);
+        $user = User::where('username', request('username'))->get();
+
+        if(count($user) == 0){
+            return redirect('/');
+        }
 
         return view('profile.index', compact('user'));
     }
@@ -55,8 +59,8 @@ class ProfileController extends Controller
     protected function validatedData()
     {
         return request()->validate([
-            'name' => 'required',
-            'email' => 'required|email',
+            'username' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
         ]);
     }
 }

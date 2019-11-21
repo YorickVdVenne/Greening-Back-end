@@ -17,7 +17,7 @@ Auth::routes(['verify' => true]);
 
 Route::get('/about', 'AboutController@index');
 
-Route::prefix('/profile')->group(function() {
+Route::prefix('/{username}')->group(function() {
     Route::get('/', 'ProfileController@index');
     Route::get('/edit', 'ProfileController@edit');
     Route::patch('/', 'ProfileController@update');

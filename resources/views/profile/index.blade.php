@@ -10,10 +10,9 @@
                 </div>
 
                 <div class="panel-body">
-                    <p><strong>{{ $user->name }}</strong></p>
-                        
+                    <p><strong>{{ $user[0]->username }}</strong></p>
 
-                    <p><strong>{{ $user->email }}</strong></p>
+                    <p><strong>{{ $user[0]->email }}</strong></p>
                        
                     <div>
                         
