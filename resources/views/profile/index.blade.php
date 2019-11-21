@@ -2,21 +2,24 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h1>Profile Page</h1>
                 </div>
-            </div>
+
+                <div class="panel-body">
+                    <p><strong>{{ $user[0]->username }}</strong></p>
+
+                    <p><strong>{{ $user[0]->email }}</strong></p>
+                       
+                    <div>
+                        
+                        <a href="/profile/edit">Edit</a>
+                    </div>
+                </div>
+            </div>   
         </div>
     </div>
 </div>
