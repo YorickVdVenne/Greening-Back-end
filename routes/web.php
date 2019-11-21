@@ -11,9 +11,9 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('/', 'IdeasController@index')->name('welcome');
 
+Route::get('/api', 'ApiController@index')->name('api');
