@@ -18,7 +18,7 @@ class ProfileController extends Controller
         $user = User::where('username', request('username'))->get();
 
         if(count($user) == 0){
-            return redirect('/');
+            return redirect('/404');
         }
 
         return view('profile.index', compact('user'));
