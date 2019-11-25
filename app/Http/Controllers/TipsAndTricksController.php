@@ -8,7 +8,7 @@ class TipsAndTricksController extends Controller
 {
     public function index()
     {
-
+        return view('tips-and-tricks.index');
     }
 
     public function create()

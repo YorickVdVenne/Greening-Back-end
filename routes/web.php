@@ -19,12 +19,6 @@ Route::get('/about', 'AboutController@index');
 
 Route::get('/404', 'NotFoundController@index');
 
-Route::prefix('/{username}')->group(function() {
-    Route::get('/', 'ProfileController@index');
-    Route::get('/edit', 'ProfileController@edit');
-    Route::patch('/', 'ProfileController@update');
-});
-
 Route::prefix('/tips-and-tricks')->group(function() {
     Route::get('/', 'TipsAndTricksController@index');
     Route::get('/create', 'TipsAndTricksController@create');
@@ -49,3 +43,8 @@ Route::prefix('/ideas')->group(function() {
     Route::delete('/{idea}', 'IdeasController@destroy');
 });
 
+Route::prefix('/{username}')->group(function() {
+    Route::get('/', 'ProfileController@index');
+    Route::get('/edit', 'ProfileController@edit');
+    Route::patch('/', 'ProfileController@update');
+});
