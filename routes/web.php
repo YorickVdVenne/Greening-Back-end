@@ -23,10 +23,10 @@ Route::prefix('/tips-and-tricks')->group(function() {
     Route::get('/', 'TipsAndTricksController@index');
     Route::get('/create', 'TipsAndTricksController@create');
     Route::post('/', 'TipsAndTricksController@store');
-    Route::get('/{tip}', 'TipsAndTricksController@show');
-    Route::get('/{tip}/edit', 'TipsAndTricksController@edit');
-    Route::patch('/{tip}',  'TipsAndTricksController@update');
-    Route::delete('/{tip}', 'TipsAndTricksController@destroy');
+    Route::get('/{tipAndTrick}', 'TipsAndTricksController@show');
+    Route::get('/{tipAndTrick}/edit', 'TipsAndTricksController@edit');
+    Route::patch('/{tipAndTrick}',  'TipsAndTricksController@update');
+    Route::delete('/{tipAndTrick}', 'TipsAndTricksController@destroy');
 });
 
 Route::prefix('/brainstorm')->group(function() {

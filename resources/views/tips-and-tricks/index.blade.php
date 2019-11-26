@@ -11,8 +11,27 @@
 
                 <div class="panel-body">
                        
+                    <div class="row">
+                        <ul><a href="/tips-and-tricks/create">Add new Tip or Trick</a></ul>
+                    </div>
                     <div>
-                        
+                        @forelse($tipsAndTricks as $tipAndTrick)
+                         Name:
+                        <p><strong>
+                            <a href="/tips-and-tricks/{{ $tipAndTrick->id }}">{{ $tipAndTrick->title }}</a>
+                        </strong></p>
+                        Subject:
+                        <p><strong>
+                            {{ $tipAndTrick->subject }}
+                        </strong></p>
+                        description
+                        <p><strong>
+                            {{ $tipAndTrick->description }}
+                        </strong></p>
+                        <p>---------------------------------------------------------------------------------------------------------</p>
+                        @empty
+                            <p>No Tips & Tricks to show</p>
+                        @endforelse
                     </div>
                 </div>
             </div>   

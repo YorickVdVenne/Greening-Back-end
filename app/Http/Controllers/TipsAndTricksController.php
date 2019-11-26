@@ -2,43 +2,75 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Request;
+use App\TipAndTrick;
+
 
 class TipsAndTricksController extends Controller
 {
     public function index()
     {
-        return view('tips-and-tricks.index');
+        $tipsAndTricks = TipAndTrick::all();
+
+        return view('tips-and-tricks.index', compact('tipsAndTricks'));
     }
 
     public function create()
     {
-
+        $tipAndTrick = new TipAndTrick(); 
+    
+        return view('tips-and-tricks.create', compact('tipAndTrick'));
     }
 
     public function store()
     {
+        $data = request()->validate([ 
+            'title' => 'required',
+            'subject' => 'required',
+            'description' => 'required'
+        ]);
 
+        TipAndTrick::create([
+            'title' => $data['title'],
+            'subject' => $data['subject'],
+            'description' => $data['description'],
+        ]);
+
+        return redirect('/tips-and-tricks');
     }
 
-    public function show()
+    public function show(TipAndTrick $tipAndTrick)
     {
-
+        return view('tips-and-tricks.show', compact('tipAndTrick'));
     }
 
-    public function edit()
+    public function edit(TipAndTrick $tipAndTrick)
     {
-
+        return view('tips-and-tricks.edit', compact('tipAndTrick'));
     }
 
-    public function update()
+    public function update(TipAndTrick $tipAndTrick)
     {
+        $data = request()->validate([ 
+            'title' => 'required',
+            'subject' => 'required',
+            'description' => 'required',
+        ]);
 
+        $tipAndTrick->update([
+            'title' => $data['title'],
+            'subject' => $data['subject'],
+            'description' => $data['description'],
+        ]);
+
+        return redirect('/tips-and-tricks');
     }
 
-    public function destroy()
+    public function destroy(TipAndTrick $tipAndTrick)
     {
+        $tipAndTrick->delete();
 
+        return redirect('/tips-and-tricks');
     }
 
 }

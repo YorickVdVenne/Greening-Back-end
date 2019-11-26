@@ -2,17 +2,13 @@
 
 @section('content')
     <div class="container">
-        <h1>Edit Tip or Trick Details</h1>
+        <h1>Add new Tip or Trick</h1>
 
-        <a href="/tips-and-tricks/{{$tipAndTrick->id}}"> < Back</a>
-
-        <form method="post" action="/tips-and-tricks/{{$tipAndTrick->id}}">
-
-        @method('PATCH')
+        <form method="post" action="/tips-and-tricks">
 
         <div>
-            <label for="title">Title</label>
-            <input type="text" name="title" autocomplete="off" value="{{ old('titel') ?? $tipAndTrick->title }}">
+            <label for="title">Titel</label>
+            <input type="text" name="title" autocomplete="off" value="{{ old('title') ?? $tipAndTrick->title }}">
             @error('title') <p style="color: red">{{ $message }}</p> @enderror 
         </div>
 
@@ -30,7 +26,7 @@
 
         @csrf
 
-            <button>Save Tip or Trick</button>
+            <button>Add New Tip or Trick</button>
 
         </form> 
     </div>
