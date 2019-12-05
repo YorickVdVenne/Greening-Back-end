@@ -7,7 +7,6 @@ use Request;
 use App\TipAndTrick;
 
 
-
 class TipsAndTricksController extends Controller
 {
     public function index()
