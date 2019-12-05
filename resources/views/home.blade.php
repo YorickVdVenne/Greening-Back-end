@@ -83,6 +83,7 @@
                 <div class="title m-b-md">
                     Greening!
                 </div>
+                <a href="/tips-and-tricks">Tips & Tricks</a>
             </div>
         </div>
     </body>
