@@ -21,7 +21,7 @@ Route::get('/404', 'NotFoundController@index');
 
 Route::prefix('/tips-and-tricks')->group(function() {
     Route::get('/', 'TipsAndTricksController@index');
-    Route::get('/create', 'TipsAndTricksController@create');
+    Route::get('/create', 'TipsAndTricksController@create')->middleware('auth');
     Route::post('/', 'TipsAndTricksController@store');
     Route::get('/{tipAndTrick}', 'TipsAndTricksController@show');
     Route::get('/{tipAndTrick}/edit', 'TipsAndTricksController@edit');
@@ -32,7 +32,7 @@ Route::prefix('/tips-and-tricks')->group(function() {
 Route::prefix('/brainstorm')->group(function() {
     Route::get('/', 'BrainstormController@index');
 });
-
+    
 Route::prefix('/ideas')->group(function() {
     Route::get('/', 'IdeasController@index');
     Route::get('/create', 'IdeasController@create');

@@ -15,6 +15,7 @@ class CreateTipAndTricksTable extends Migration
     {
         Schema::create('tip_and_tricks', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedInteger('user_id');
             $table->string('title');
             $table->string('subject');
             $table->string('description');

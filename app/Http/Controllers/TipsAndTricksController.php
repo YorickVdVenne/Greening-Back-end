@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Request;
 use App\TipAndTrick;
+
 
 
 class TipsAndTricksController extends Controller
@@ -30,7 +32,10 @@ class TipsAndTricksController extends Controller
             'description' => 'required'
         ]);
 
+        $user_id = Auth::user()->id;
+
         TipAndTrick::create([
+            'user_id' => $user_id,
             'title' => $data['title'],
             'subject' => $data['subject'],
             'description' => $data['description'],
