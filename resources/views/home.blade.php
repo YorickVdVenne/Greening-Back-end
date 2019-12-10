@@ -84,6 +84,9 @@
                     Greening!
                 </div>
                 <a href="/tips-and-tricks">Tips & Tricks</a>
+                <p>
+                <a href="/ideas">Ideas</a>
+                </p>
             </div>
         </div>
     </body>

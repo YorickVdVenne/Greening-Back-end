@@ -35,7 +35,7 @@ Route::prefix('/brainstorm')->group(function() {
     
 Route::prefix('/ideas')->group(function() {
     Route::get('/', 'IdeasController@index');
-    Route::get('/create', 'IdeasController@create');
+    Route::get('/create', 'IdeasController@create')->middleware('auth');
     Route::post('/', 'IdeasController@store');
     Route::get('/{idea}', 'IdeasController@show');
     Route::get('/{idea}/edit', 'IdeasController@edit');

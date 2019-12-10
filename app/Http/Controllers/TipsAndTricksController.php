@@ -7,7 +7,6 @@ use Request;
 use App\TipAndTrick;
 
 
-
 class TipsAndTricksController extends Controller
 {
     public function index()
@@ -62,7 +61,10 @@ class TipsAndTricksController extends Controller
             'description' => 'required',
         ]);
 
+        $user_id = Auth::user()->id;
+            
         $tipAndTrick->update([
+            'user_id' => $user_id,
             'title' => $data['title'],
             'subject' => $data['subject'],
             'description' => $data['description'],
