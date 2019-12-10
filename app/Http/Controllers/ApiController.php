@@ -16,7 +16,6 @@ class ApiController extends Controller
              $users = User::all()->toJson(); //idea model and table don't exist yet
              header('Content-Type: application/json');
              return $users;
-      
   
     }
 

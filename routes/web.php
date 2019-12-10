@@ -15,7 +15,7 @@ Route::get('/', 'HomeController@index');
 
 Auth::routes(['verify' => true]);
 
-Route::get('/api', 'ApiController@index')->name('api');
+Route::get('/api', 'ApiController@index')->middleware('cors')->name('api');
 
 Route::get('/about', 'AboutController@index');
 
