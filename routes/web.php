@@ -48,3 +48,5 @@ Route::prefix('/{username}')->group(function() {
     Route::get('/edit', 'ProfileController@edit');
     Route::patch('/', 'ProfileController@update');
 });
+
+Route::get('/api', 'ApiController@index')->name('api');
