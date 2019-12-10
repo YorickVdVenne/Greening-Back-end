@@ -11,9 +11,9 @@ class TipsAndTricksController extends Controller
 {
     public function index()
     {
-        $tipsAndTricks = TipAndTrick::all();
-
-        return view('tips-and-tricks.index', compact('tipsAndTricks'));
+        $tipsAndTricks = TipAndTrick::all()->toJson();
+        header('Content-Type: application/json');
+        return $tipsAndTricks;  
     }
 
     public function create()
