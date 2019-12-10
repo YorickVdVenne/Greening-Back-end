@@ -15,6 +15,8 @@ Route::get('/', 'HomeController@index');
 
 Auth::routes(['verify' => true]);
 
+Route::get('/api', 'ApiController@index')->name('api');
+
 Route::get('/about', 'AboutController@index');
 
 Route::get('/404', 'NotFoundController@index');
@@ -49,4 +51,4 @@ Route::prefix('/{username}')->group(function() {
     Route::patch('/', 'ProfileController@update');
 });
 
-Route::get('/api', 'ApiController@index')->name('api');
+
