@@ -17,6 +17,10 @@ Auth::routes(['verify' => true]);
 
 Route::get('/api', 'ApiController@index')->middleware('cors')->name('api');
 
+    Route::get('/api/users', 'ProfileController@getAll')->name('api-users'); 
+    // Route::get('/api/users/{user_id}', 'ProfileController@getOne')->name('api-user'); 
+
+
 Route::get('/about', 'AboutController@index');
 
 Route::get('/404', 'NotFoundController@index');
