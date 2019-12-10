@@ -17,6 +17,10 @@ class ApiController extends Controller
              header('Content-Type: application/json');
              return $users;
       
+      
+      
+      
+         return view('api', compact('users')); //probably some URL instead of a view
   
     }
 

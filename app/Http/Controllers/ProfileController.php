@@ -9,15 +9,28 @@ use Illuminate\Http\Request;
 class ProfileController extends Controller
 {
 
-    public function index()
+    // public function getOne()
+    // {
+    //     $user = User::where('id', request('user_id'))->toJson(); //idea model and table don't exist yet
+    //     header('Content-Type: application/json');
+    //     // if(count($user) == 0){
+    //     //     return redirect('/404');
+    //     // } else { 
+    //     return $user;
+    //     // }
+                            
+    // }
+
+    public function getAll()
     {
-        $user = User::where('username', request('username'))->get();
-
-        if(count($user) == 0){
-            return redirect('/404');
-        }
-
-        return view('profile.index', compact('user'));
+        $users = User::all()->toJson(); //idea model and table don't exist yet
+        header('Content-Type: application/json');
+        // if(count($users) == 0){
+        //     return redirect('/404');
+        // } else { 
+        return $users;
+        // }
+ 
     }
 
     public function edit()
