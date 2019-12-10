@@ -10,9 +10,9 @@ class IdeasController extends Controller
 {
     public function index()
     {
-        $ideas = Idea::all();
-
-        return view('idea.index', compact('ideas'));
+        $ideas = Idea::all()->toJson();
+        header('Content-Type: application/json');
+        return $ideas;        
     }
 
     public function create()
