@@ -11,48 +11,40 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
 
-Auth::routes(['verify' => true]);
+Route::prefix('/api')->group(function() {
 
-Route::get('/api', 'ApiController@index')->middleware('cors')->name('api');
+    Auth::routes(['verify' => true]);
 
-    Route::get('/api/users', 'ProfileController@getAll')->name('api-users'); 
-    // Route::get('/api/users/{user_id}', 'ProfileController@getOne')->name('api-user'); 
+    Route::get('users', 'UsersController@index');
 
+    Route::prefix('/tips-and-tricks')->group(function() {
+        Route::get('/', 'TipsAndTricksController@index');
+        Route::get('/create', 'TipsAndTricksController@create')->middleware('auth');
+        Route::post('/', 'TipsAndTricksController@store');
+        Route::get('/{tipAndTrick}', 'TipsAndTricksController@show');
+        Route::get('/{tipAndTrick}/edit', 'TipsAndTricksController@edit');
+        Route::patch('/{tipAndTrick}',  'TipsAndTricksController@update');
+        Route::delete('/{tipAndTrick}', 'TipsAndTricksController@destroy');
+    });
 
-Route::get('/about', 'AboutController@index');
+    Route::prefix('/brainstorm')->group(function() {
+        Route::get('/', 'BrainstormController@index');
+    });
 
-Route::get('/404', 'NotFoundController@index');
+    Route::prefix('/ideas')->group(function() {
+        Route::get('/', 'IdeasController@index');
+        Route::get('/create', 'IdeasController@create')->middleware('auth');
+        Route::post('/', 'IdeasController@store');
+        Route::get('/{idea}', 'IdeasController@show');
+        Route::get('/{idea}/edit', 'IdeasController@edit');
+        Route::patch('/{idea}',  'IdeasController@update');
+        Route::delete('/{idea}', 'IdeasController@destroy');
+    });
 
-Route::prefix('/tips-and-tricks')->group(function() {
-    Route::get('/', 'TipsAndTricksController@index');
-    Route::get('/create', 'TipsAndTricksController@create')->middleware('auth');
-    Route::post('/', 'TipsAndTricksController@store');
-    Route::get('/{tipAndTrick}', 'TipsAndTricksController@show');
-    Route::get('/{tipAndTrick}/edit', 'TipsAndTricksController@edit');
-    Route::patch('/{tipAndTrick}',  'TipsAndTricksController@update');
-    Route::delete('/{tipAndTrick}', 'TipsAndTricksController@destroy');
+    Route::prefix('/{username}')->group(function() {
+        Route::get('/', 'ProfileController@index');
+        Route::get('/edit', 'ProfileController@edit');
+        Route::patch('/', 'ProfileController@update');
+    });
 });
-
-Route::prefix('/brainstorm')->group(function() {
-    Route::get('/', 'BrainstormController@index');
-});
-    
-Route::prefix('/ideas')->group(function() {
-    Route::get('/', 'IdeasController@index');
-    Route::get('/create', 'IdeasController@create')->middleware('auth');
-    Route::post('/', 'IdeasController@store');
-    Route::get('/{idea}', 'IdeasController@show');
-    Route::get('/{idea}/edit', 'IdeasController@edit');
-    Route::patch('/{idea}',  'IdeasController@update');
-    Route::delete('/{idea}', 'IdeasController@destroy');
-});
-
-Route::prefix('/{username}')->group(function() {
-    Route::get('/', 'ProfileController@index');
-    Route::get('/edit', 'ProfileController@edit');
-    Route::patch('/', 'ProfileController@update');
-});
-
-
