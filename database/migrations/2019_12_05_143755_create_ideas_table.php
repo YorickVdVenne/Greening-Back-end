@@ -18,7 +18,7 @@ class CreateIdeasTable extends Migration
             $table->unsignedInteger('user_id');
             $table->string('title');
             $table->string('subject');
-            $table->string('description');
+            $table->string('description', 10000);
             $table->timestamps();
         });
     }
