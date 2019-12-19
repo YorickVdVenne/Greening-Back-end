@@ -28,10 +28,6 @@ Route::prefix('/api')->group(function() {
         Route::delete('/{tipAndTrick}', 'TipsAndTricksController@destroy');
     });
 
-    Route::prefix('/brainstorm')->group(function() {
-        Route::get('/', 'BrainstormController@index');
-    });
-
     Route::prefix('/ideas')->group(function() {
         Route::get('/', 'IdeasController@index')->middleware('cors');
         Route::get('/create', 'IdeasController@create')->middleware('auth');
