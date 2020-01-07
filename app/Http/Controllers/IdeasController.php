@@ -39,7 +39,7 @@ class IdeasController extends Controller
             'description' => $data['description'],
         ]);
 
-        return redirect('/ideas');
+        return redirect('/api/ideas');
     }
 
     public function show(Idea $idea)

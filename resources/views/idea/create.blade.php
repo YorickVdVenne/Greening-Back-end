@@ -4,7 +4,7 @@
     <div class="container">
         <h1>Add new Idea</h1>
 
-        <form method="post" action="/ideas">
+        <form method="post" action="/api/ideas">
 
         <div>
             <label for="title">Titel</label>
