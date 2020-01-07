@@ -30,7 +30,7 @@ class IdeasController extends Controller
             'description' => 'required'
         ]);
 
-        $user_id = Auth::user()->id;
+        $user_id = 1; //Needs to be fixed
 
             Idea::create([
             'user_id' => $user_id,
