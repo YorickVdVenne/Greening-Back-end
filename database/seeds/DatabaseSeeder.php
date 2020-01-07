@@ -13,9 +13,9 @@ class DatabaseSeeder extends Seeder
     {
         DB::table('ideas')->insert([
             'user_id' => 1,
-            'title' => Str::random(10),
-            'subject' => Str::random(10),
-            'description' => Str::random(2000)
+            'title' => "Aapjes",
+            'subject' => "Dieren",
+            'description' => "apen zijn cool 4ever"
         ]);
     }
 }
