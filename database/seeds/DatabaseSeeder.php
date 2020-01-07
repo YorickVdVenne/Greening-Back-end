@@ -17,5 +17,11 @@ class DatabaseSeeder extends Seeder
             'subject' => "Dieren",
             'description' => "apen zijn cool 4ever"
         ]);
+        DB::table('ideas')->insert([
+            'user_id' => 1,
+            'title' => "Auto",
+            'subject' => "Transport",
+            'description' => "pak de fiets hee"
+        ]);
     }
 }
