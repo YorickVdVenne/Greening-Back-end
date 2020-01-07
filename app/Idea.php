@@ -12,4 +12,9 @@ class Idea extends Model
     {
         return $this->belongsTo(User::class);
     }
+    
+    public function joined_user()
+    {
+        return $this->belongsToMany('App\User');
+    }
 }
