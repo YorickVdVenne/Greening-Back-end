@@ -20,22 +20,22 @@ Route::prefix('/api')->group(function() {
 
     Route::prefix('/tips-and-tricks')->group(function() {
         Route::get('/', 'TipsAndTricksController@index')->middleware('cors');
-        Route::get('/create', 'TipsAndTricksController@create')->middleware('auth');
-        Route::post('/', 'TipsAndTricksController@store')->middleware('cors');
-        Route::get('/{tipAndTrick}', 'TipsAndTricksController@show')->middleware('cors');
-        Route::get('/{tipAndTrick}/edit', 'TipsAndTricksController@edit')->middleware('cors');
-        Route::patch('/{tipAndTrick}',  'TipsAndTricksController@update')->middleware('cors');
-        Route::delete('/{tipAndTrick}', 'TipsAndTricksController@destroy')->middleware('cors');
+        Route::get('/create', 'TipsAndTricksController@create')->middleware('cors', 'auth');
+        Route::post('/', 'TipsAndTricksController@store')->middleware('cors', 'auth');
+        Route::get('/{tipAndTrick}', 'TipsAndTricksController@show')->middleware('cors', 'auth');
+        Route::get('/{tipAndTrick}/edit', 'TipsAndTricksController@edit')->middleware('cors', 'auth');
+        Route::patch('/{tipAndTrick}',  'TipsAndTricksController@update')->middleware('cors', 'auth');
+        Route::delete('/{tipAndTrick}', 'TipsAndTricksController@destroy')->middleware('cors', 'auth');
     });
 
     Route::prefix('/ideas')->group(function() {
         Route::get('/', 'IdeasController@index')->middleware('cors');
-        Route::get('/create', 'IdeasController@create')->middleware('cors');
-        Route::post('/', 'IdeasController@store')->middleware('cors');
-        Route::get('/{idea}', 'IdeasController@show')->middleware('cors');
-        Route::get('/{idea}/edit', 'IdeasController@edit')->middleware('cors');
-        Route::patch('/{idea}',  'IdeasController@update')->middleware('cors');
-        Route::delete('/{idea}', 'IdeasController@destroy')->middleware('cors');
+        Route::get('/create', 'IdeasController@create')->middleware('cors', 'auth');
+        Route::post('/', 'IdeasController@store')->middleware('cors', 'auth');
+        Route::get('/{idea}', 'IdeasController@show')->middleware('cors', 'auth');
+        Route::get('/{idea}/edit', 'IdeasController@edit')->middleware('cors', 'auth');
+        Route::patch('/{idea}',  'IdeasController@update')->middleware('cors', 'auth');
+        Route::delete('/{idea}', 'IdeasController@destroy')->middleware('cors', 'auth');
     });
 
     Route::prefix('/{username}')->group(function() {
