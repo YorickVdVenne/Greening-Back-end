@@ -46,4 +46,10 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(TipAndTrick::class);
     }
+
+    public function idea()
+    {
+        return $this->belongsToMany('App\Idea');
+    }
+
 }

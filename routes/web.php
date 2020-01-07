@@ -35,7 +35,7 @@ Route::prefix('/api')->group(function() {
     Route::prefix('/ideas')->group(function() {
         Route::get('/', 'IdeasController@index')->middleware('cors');
         Route::get('/create', 'IdeasController@create')->middleware('auth');
-        Route::post('/', 'IdeasController@store');
+        Route::post('/', 'IdeasController@store'); 
         Route::get('/{idea}', 'IdeasController@show');
         Route::get('/{idea}/edit', 'IdeasController@edit');
         Route::patch('/{idea}',  'IdeasController@update');
