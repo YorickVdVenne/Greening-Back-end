@@ -42,9 +42,15 @@ class IdeasController extends Controller
         return redirect('/api/ideas');
     }
 
-    public function show(Idea $idea)
+    public function show($id)
     {
-        return view('idea.show', compact('idea'));
+
+        $ideas = Idea::all()->toJson();
+
+
+        $idea = Idea::find($id)->toJson();
+        header('Content-Type: application/json');
+        return $idea;        
     }
 
     public function edit(Idea $idea)
