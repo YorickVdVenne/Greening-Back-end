@@ -43,14 +43,14 @@ class TipsAndTricksController extends Controller
         return redirect('/tips-and-tricks');
     }
 
-    public function show(TipAndTrick $id)
+    public function show($tipAndTrick)
     {
 
 
         $tipsandtricks = TipAndTrick::all()->toJson();
 
 
-        $tipandtrick = TipAndTrick::find($id)->toJson();
+        $tipandtrick = TipAndTrick::find($tipAndTrick)->toJson();
         header('Content-Type: application/json');
         return $tipandtrick; 
     }

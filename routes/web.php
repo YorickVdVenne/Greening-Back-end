@@ -22,7 +22,7 @@ Route::prefix('/api')->group(function() {
         Route::get('/', 'TipsAndTricksController@index')->middleware('cors');
         Route::get('/create', 'TipsAndTricksController@create')->middleware('cors');
         Route::post('/', 'TipsAndTricksController@store')->middleware('cors');
-        Route::get('/{id}', 'TipsAndTricksController@show')->middleware('cors');
+        Route::get('/{tipAndTrick}', 'TipsAndTricksController@show')->middleware('cors');
         Route::get('/{tipAndTrick}/edit', 'TipsAndTricksController@edit')->middleware('cors');
         Route::patch('/{tipAndTrick}',  'TipsAndTricksController@update')->middleware('cors');
         Route::delete('/{tipAndTrick}', 'TipsAndTricksController@destroy')->middleware('cors');
